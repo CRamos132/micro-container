@@ -13,6 +13,7 @@ const {
 function Header() {
   return (
     <div className="banner">
+      <Link to={`/books`}>books</Link>
       <h1 className="banner-title">&#128571; Cats and Dogs &#128021;</h1>
       <h4>Random pics of cats and dogs</h4>
     </div>

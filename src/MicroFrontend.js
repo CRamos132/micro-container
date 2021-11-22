@@ -7,12 +7,11 @@ function MicroFrontend({ name, host }) {
   async function buscaDados() {
     const res = await fetch(`${host}/asset-manifest.json`);
     const manifest = await res.json();
-    console.log("🚀 ~ manifest", manifest);
     return await manifest;
   }
 
   const renderMicroFrontend = () => {
-    window[`render${name}`](`${name}-container`);
+    window[`render${name}`]?.(`${name}-container`);
     const element = document.getElementById(`${name}-container`);
     ref.current = element;
   };
@@ -36,6 +35,7 @@ function MicroFrontend({ name, host }) {
       script.id = scriptId;
       script.crossOrigin = "";
       script.src = `${host}${manifest.files["main.js"]}`;
+
       script.onload = () => {
         renderMicroFrontend();
       };

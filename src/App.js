@@ -4,8 +4,11 @@ import MicroFrontend from "./MicroFrontend";
 
 import "./App.css";
 
-const { REACT_APP_DOGS_HOST: dogsHost, REACT_APP_CATS_HOST: catsHost } =
-  process.env;
+const {
+  REACT_APP_DOGS_HOST: dogsHost,
+  REACT_APP_CATS_HOST: catsHost,
+  REACT_APP_BOOKS_HOST: booksHost,
+} = process.env;
 
 function Header() {
   return (
@@ -22,6 +25,10 @@ function Dogs() {
 
 function Cats() {
   return <MicroFrontend host={catsHost} name="Cats" />;
+}
+
+function Books() {
+  return <MicroFrontend host={booksHost} name="Books" />;
 }
 
 function GreetingCat() {
@@ -78,6 +85,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/cat/:greeting" element={<GreetingCat />} />
+          <Route exact path="/books" element={<Books />} />
         </Routes>
       </React.Fragment>
     </BrowserRouter>
